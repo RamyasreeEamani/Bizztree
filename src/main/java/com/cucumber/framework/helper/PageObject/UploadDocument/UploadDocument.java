@@ -40,11 +40,16 @@ public class UploadDocument extends PageBase
 	@FindBy(how=How.XPATH,using = "(//div[@class ='icon icon--secondary'])[6]")
 	public WebElement add_Collapse_Btn;
 	
-	@FindBy(how=How.XPATH,using = "(//span[text() = 'Upload File '])[2]")
-	public WebElement add_UploaFile_Btn;
+	@FindBy(how=How.XPATH,using = "(//span[text() = 'Upload Files '])[2]")
+	public WebElement add_UploaFile;
 	
 	@FindBy(how=How.XPATH,using = "(//span[text() = 'Upload Folder '])[2]")
 	public WebElement add_UploadFolder;
+	
+	@FindBy(how=How.XPATH,using = "(//div[contains(text(), 'Upload')])[3]")
+	public WebElement upload_Btn;
+	
+	
 	
 	@FindBy(how=How.XPATH,using = "(//span[contains(text(), 'New Folder ')])[2]")
 	public WebElement add_NewFolder;
@@ -55,10 +60,7 @@ public class UploadDocument extends PageBase
 	@FindBy(how=How.XPATH,using = "//div[@id ='1']")
 	public WebElement created_FolderName;
 	
-	
-	@FindBy(how=How.XPATH,using = "//span[contains(text(), 'TestFolder1')]/..")
-	public WebElement select_CreatedFolder;
-	
+		
 	
 	@FindBy(how=How.XPATH,using = "//div[text() = 'Create']")
 	public WebElement click_CreateBtn;
@@ -70,6 +72,8 @@ public class UploadDocument extends PageBase
 	@FindBy(how=How.XPATH,using = "//h5[contains(text(), 'Drop folder here or click to upload')]")
 	public WebElement droFolderHere;
 	
+	@FindBy(how=How.XPATH,using = "//h5[contains(text(), 'Drop files here or click to upload')]")
+	public WebElement droFilesHere;
 
 	@FindBy(how=How.XPATH,using = "(//span[contains(text(), 'New Document ')])[2]")
 	public WebElement newDocument_BTN;
@@ -90,6 +94,17 @@ public class UploadDocument extends PageBase
 	public WebElement confirm_DeleteFolder;
 	
 	
+	
+	@FindBy(how=How.XPATH,using = "//div[@id = 'drag-area0']//span")
+	public WebElement select_createdFolder;
+	
+	
+	@FindBy(how=How.XPATH,using = "//div[contains(text(), 'Share')]")
+	public WebElement share_Button;
+	
+	
+	
+	
 	/** Public Methods  **/
 	
 	public WebDriver getDriver() {
@@ -106,16 +121,11 @@ public class UploadDocument extends PageBase
 	
 	public void selectCreatedFolder() {
 		
-		select_CreatedFolder.click(); 
+		select_createdFolder.click(); 
 		
 	}
 	
-public void clickCreatedFolder() {
-		
-//	created_FolderName.click();
-	select_CreatedFolder.click();
-		
-	}
+
 public void deleteCreatedFolder() throws InterruptedException {
 	
 	click_Threedots.click(); 
@@ -136,13 +146,18 @@ public void deleteCreatedFolder() throws InterruptedException {
 	}
 	
 	public void clickUploadFileButton() {
-		add_UploaFile_Btn.click();
+		add_UploaFile.click();
 	
 		
 	}
 	
 	public void clickUploadFoler() {
 		add_UploadFolder.click(); 
+		
+	}
+	
+	public void clickUploadButton() {
+		upload_Btn.click(); 
 		
 	}
 	
@@ -167,10 +182,12 @@ public void deleteCreatedFolder() throws InterruptedException {
 	
 	public void dropFolderssHere() throws AWTException {
 		droFolderHere.click();
-		
-		
+			
+	}
 	
-		
+	public void dropFilesHere() throws AWTException {
+		droFilesHere.click();
+			
 	}
 	
 	public void newDocument() {

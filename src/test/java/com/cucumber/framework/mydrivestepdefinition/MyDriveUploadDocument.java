@@ -58,10 +58,11 @@ public class MyDriveUploadDocument  {
 		
 	}
 
-	@Then("^I Click OnUploadFile$")
+	@Then("^I Click On UploadFile$")
 	public void _click_UploadFile() {
 		
 		myDrive_UploadDOc.clickUploadFileButton();
+		myDrive_UploadDOc.waitForElement(myDrive_UploadDOc.upload_Btn, 30);
 		
 	}
 	@Then("^I Click On UploadFolder$")
@@ -103,11 +104,11 @@ public class MyDriveUploadDocument  {
 		myDrive_UploadDOc.clickCreate();
 		myDrive_UploadDOc.waitForElement(myDrive_UploadDOc.created_FolderName, 30);
 	}
-	@Then("^I Select CreatedFolder$")
-	public void _click_CreatedFolder() {
+	@Then("^I Select Created Folder$")
+	public void _click_CreatedFolder() throws InterruptedException {
 		
-		myDrive_UploadDOc.clickCreatedFolder();
-		
+		myDrive_UploadDOc. selectCreatedFolder();
+		myDrive_UploadDOc.waitForElement(myDrive_UploadDOc.share_Button, 60);
 	}
 	@Then("^I Delete Created Folder$")
 	public void _deleteFolder() throws InterruptedException {
@@ -115,15 +116,24 @@ public class MyDriveUploadDocument  {
 		myDrive_UploadDOc.deleteCreatedFolder();
 		
 	}
+	
 	@Then("^I Click om File Loaction$")
 	public void _click_DragFilesHere() throws AWTException, InterruptedException {
+		
+		myDrive_UploadDOc.dropFilesHere();	
+		Thread.sleep(1000);
+		
+	}
+	
+	@Then("^I Click om Folder Loaction$")
+	public void _click_DragFolderHere() throws AWTException, InterruptedException {
 		
 		myDrive_UploadDOc.dropFolderssHere();	
 		Thread.sleep(1000);
 		
 	}
 	@Then("^I Enter Folder Loaction \"([^\"]*)\"$")
-	public void _file_Locaction(String fileName) throws AWTException, InterruptedException {
+	public void _folder_Locaction(String fileName) throws AWTException, InterruptedException {
 		
 
 	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -151,7 +161,46 @@ public class MyDriveUploadDocument  {
 		 robot.keyRelease(KeyEvent.VK_TAB);
 		 robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(1000);
+		myDrive_UploadDOc.clickUploadButton();
+		Thread.sleep(4000);
 		
 	}
+	
+	@Then("^I Enter File Loaction \"([^\"]*)\"$")
+	public void _file_Locaction(String fileName) throws AWTException, InterruptedException {
+		
+
+	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		
+		StringSelection stringSelection = new StringSelection(fileName);
+		
+		
+		Robot robot = new Robot();
+		robot.setAutoDelay(2000);
+		
+		clipboard.setContents(stringSelection, null);
+		
+		 robot.keyPress(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_V);
+		  robot.keyRelease(KeyEvent.VK_V);
+		  robot.keyRelease(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_TAB);
+		  robot.keyRelease(KeyEvent.VK_TAB);
+		//Simulate Enter key event
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		robot.setAutoDelay(12000);
+//		//Alert.AcceptAlert();
+//		robot.keyPress(KeyEvent.VK_TAB);
+//		 robot.keyRelease(KeyEvent.VK_TAB);
+//		 robot.keyPress(KeyEvent.VK_ENTER);
+//			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(1000);
+		myDrive_UploadDOc.clickUploadButton();
+		Thread.sleep(4000);
+		
+	}
+	
 	
 }

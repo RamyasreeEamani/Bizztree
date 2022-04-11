@@ -8,11 +8,12 @@ Feature: Bizz application login
     |userName|password|     
     |ramya-sree.eamani@biztree.com|Password1234|
     Then I Click On Login button
+    Then I Select Created Folder
     Then I click on add button
-    Then I Click On UploadFolder
-    Then I Click om Folder Loaction
-    Then I Enter Folder Loaction "<fileName>"
+    Then I Click On UploadFile
+    Then I Click om File Loaction
+    Then I Enter File Loaction "<fileName>"
    
      Examples: 
     |fileName|
-    |C:\Ramya_Test|
+    |C:\Ramya_Test\Test1|

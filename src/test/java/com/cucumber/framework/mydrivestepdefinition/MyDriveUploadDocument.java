@@ -109,6 +109,7 @@ public class MyDriveUploadDocument  {
 		
 		myDrive_UploadDOc. selectCreatedFolder();
 		myDrive_UploadDOc.waitForElement(myDrive_UploadDOc.share_Button, 60);
+		Thread.sleep(10000);
 	}
 	@Then("^I Delete Created Folder$")
 	public void _deleteFolder() throws InterruptedException {
@@ -132,6 +133,23 @@ public class MyDriveUploadDocument  {
 		Thread.sleep(1000);
 		
 	}
+	
+	@Then("^I delete selected folder$")
+	public void deleteFolder() throws AWTException, InterruptedException {
+		myDrive_UploadDOc.waitForElement(myDrive_UploadDOc.selectFile, 30);
+		myDrive_UploadDOc.selectfile();
+		myDrive_UploadDOc.deleteCreatedFolder();
+	}
+	
+	@Then("^I select files to favorites$")
+	public void _favorites() throws AWTException, InterruptedException {
+		myDrive_UploadDOc.waitForElement(myDrive_UploadDOc.selectFile, 30);
+		myDrive_UploadDOc.selectfile();
+		myDrive_UploadDOc.favorites();
+		
+		Thread.sleep(1000);
+		
+	}
 	@Then("^I Enter Folder Loaction \"([^\"]*)\"$")
 	public void _folder_Locaction(String fileName) throws AWTException, InterruptedException {
 		
@@ -145,7 +163,6 @@ public class MyDriveUploadDocument  {
 		robot.setAutoDelay(2000);
 		
 		clipboard.setContents(stringSelection, null);
-		
 		 robot.keyPress(KeyEvent.VK_CONTROL);
 		  robot.keyPress(KeyEvent.VK_V);
 		  robot.keyRelease(KeyEvent.VK_V);
@@ -162,7 +179,7 @@ public class MyDriveUploadDocument  {
 		 robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			Thread.sleep(1000);
-		myDrive_UploadDOc.clickUploadButton();
+		//myDrive_UploadDOc.clickUploadButton();
 		Thread.sleep(4000);
 		
 	}
@@ -191,13 +208,18 @@ public class MyDriveUploadDocument  {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		robot.setAutoDelay(12000);
+		//Alert.AcceptAlert();
+		robot.keyPress(KeyEvent.VK_TAB);
+		 robot.keyRelease(KeyEvent.VK_TAB);
+		 robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
 //		//Alert.AcceptAlert();
 //		robot.keyPress(KeyEvent.VK_TAB);
 //		 robot.keyRelease(KeyEvent.VK_TAB);
 //		 robot.keyPress(KeyEvent.VK_ENTER);
 //			robot.keyRelease(KeyEvent.VK_ENTER);
 			Thread.sleep(1000);
-		myDrive_UploadDOc.clickUploadButton();
+//		myDrive_UploadDOc.clickUploadButton();
 		Thread.sleep(4000);
 		
 	}

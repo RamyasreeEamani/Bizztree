@@ -36,7 +36,7 @@ public class BizzLogin extends PageBase {
 	@FindBy(how=How.XPATH,using="//button[text() = 'Log in']")
 	public WebElement btn_login;
 	
-	@FindBy(how=How.XPATH,using="//a[contains(text() , 'My Drive')]")
+	@FindBy(how=How.XPATH,using="//span[contains(text() , 'My Drive')]")
 	public WebElement my_Drive_Text;
 
 	

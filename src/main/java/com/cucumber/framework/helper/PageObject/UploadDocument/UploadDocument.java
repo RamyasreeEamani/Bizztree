@@ -84,7 +84,7 @@ public class UploadDocument extends PageBase
 	@FindBy(how=How.XPATH,using = "//span[contains(text(), 'Paste folder ')]")
 	public WebElement pasteFolder_BTN;
 	
-	@FindBy(how=How.XPATH,using = "(//div[contains(@class, 'shape-circle')])[5]")
+	@FindBy(how=How.XPATH,using = "(//div[contains(@class, 'shape-circle')])[7]")
 	public WebElement click_Threedots;
 	
 	@FindBy(how=How.XPATH,using = "//span[contains(text(), 'Delete')]")
@@ -101,6 +101,12 @@ public class UploadDocument extends PageBase
 	
 	@FindBy(how=How.XPATH,using = "//div[contains(text(), 'Share')]")
 	public WebElement share_Button;
+	
+	@FindBy(how=How.XPATH,using = "//div[@id = 'file0']")
+	public WebElement selectFile;
+	
+	@FindBy(how=How.XPATH,using = "//div[@class = 'icon favorite__icon icon--gray5']")
+	public WebElement favorite_Btn;
 	
 	
 	
@@ -121,6 +127,7 @@ public class UploadDocument extends PageBase
 	
 	public void selectCreatedFolder() {
 		
+		select_createdFolder.click(); 
 		select_createdFolder.click(); 
 		
 	}
@@ -202,4 +209,14 @@ public void deleteCreatedFolder() throws InterruptedException {
 		pasteFolder_BTN.click(); 
 		
 	}
+	public void selectfile() {
+		selectFile.click(); 
+		
+	}
+	
+	public void favorites() {
+		favorite_Btn.click(); 
+		
+	}
+	
 }

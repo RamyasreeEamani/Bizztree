@@ -14,7 +14,7 @@ Feature: Bizz application login
     |folderName|
     |TestFolder1|
     Then I Click Create
-    Then I Select CreatedFolder
+   // Then I Select CreatedFolder//
     
     
     #Then I Click On Collapse button

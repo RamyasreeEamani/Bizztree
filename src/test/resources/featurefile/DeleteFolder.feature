@@ -1,7 +1,7 @@
-Feature: Bizz application login
+Feature: Bizz application login and adding and selecting folder and delete folder
 
   @chrome
-  Scenario Outline: Successfully Loggedinto Bizztree
+  Scenario Outline: Successfully Deleted Folder
     Given I am at Bizztree launch Page
     #Then I Enter Valid UserName "<userName>" and Valid Password "<password>"
     Then I Enter Valid credentials
@@ -9,11 +9,5 @@ Feature: Bizz application login
     |ramya-sree.eamani@biztree.com|Password1234|
     Then I Click On Login button
     Then I Select Created Folder
-    Then I click on add button
-    Then I Click On UploadFile
-    Then I Click om File Loaction
-    Then I Enter File Loaction "<fileName>"
-   
-     Examples: 
-    |fileName|
-    |C:\Ramya_Test\Test1.txt|
+    Then I delete selected folder
+    
